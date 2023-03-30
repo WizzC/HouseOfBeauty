@@ -6,7 +6,7 @@ ob_start();
   <div class="container">
     <?php foreach ($components as $component) { ?>
       <div class="col m-0 mb-5 " >
-        <h3 class="container text-center"><?= $component->getTitre() ?></h3>
+        <h3 class=" text-center"><?= $component->getTitre() ?></h3>
         <div class="row">
         <?php if ($component->getIdComponent() % 2 == 0) { ?>
             <div class="col">

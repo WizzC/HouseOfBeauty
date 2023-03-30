@@ -47,9 +47,9 @@
                         COMPTE
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle ms-2" height="22" alt="" loading="lazy" />
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start bg-dark">
-                        <li><a class="btn btn-dark text-dark rounded d-flex justify-content-center" href="">Parametre</a></li>
-                        <li><a class="btn btn-dark text-dark rounded d-flex justify-content-center" href="<?= URL ?>logout">Deconnexion</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start bg-light">
+                        <li><a class="btn btn-light text-dark rounded d-flex justify-content-center" href="">Parametre</a></li>
+                        <li><a class="btn btn-light text-dark rounded d-flex justify-content-center" href="<?= URL ?>logout">Deconnexion</a></li>
                     </ul>
                 </div>
             <?php else: ?>

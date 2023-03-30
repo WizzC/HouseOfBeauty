@@ -2,12 +2,14 @@
 class Commentaire {
     private $idCommentaire;
     private $commentaire;
+    private $dateCommentaire;
     private $idUsers;
     private $pseudo;
   
-    public function __construct($id, $comment, $userId,$pseudo) {
+    public function __construct($id, $comment ,$dateCommentaire, $userId,$pseudo) {
       $this->idCommentaire = $id;
       $this->commentaire = $comment;
+      $this->dateCommentaire = $dateCommentaire;
       $this->idUsers = $userId;
       $this->pseudo = $pseudo;
     }
@@ -19,6 +21,9 @@ class Commentaire {
   
     public function getCommentaire() {
       return $this->commentaire;
+    }
+    public function getDateCommentaire(){
+      return $this->dateCommentaire;
     }
   
     public function getIdUsers() {
@@ -35,6 +40,10 @@ class Commentaire {
   
     public function setCommentaire($comment) {
       $this->commentaire = $comment;
+    }
+
+    public function setDateCommentaire($dateCommentaire){
+      $this->dateCommentaire = $dateCommentaire;
     }
   
     public function setIdUsers($userId) {

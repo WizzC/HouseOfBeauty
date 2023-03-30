@@ -7,22 +7,6 @@ ob_start();
             <h1 class="mb-4 text-center">Commentaires</h1>
 
             <h2 class="mb-4 text-center">Liste des commentaires :</h2>
-            <?php
-            if ($aa != 0) {
-                foreach ($aa as $a) {
-                    echo $a->getCommentaire() . $a->getPseudo();
-                    if (isset($_SESSION['idUsers']) && $_SESSION['idUsers'] == $a->getIdUsers()) {
-            ?>
-                        <button><a href="<?= URL ?>avis/supp/<?= $a->getIdCommentaire() ?>">supprimer</a></button><br>
-            <?php
-
-                    }
-                }
-            } else {
-                echo "rien";
-            }
-            ?>
-
             <?php if (isset($_SESSION['Pseudo'])) : ?>
                 <form action="<?= URL ?>avis/l" method="POST">
                     <div class="mb-3">
@@ -35,6 +19,31 @@ ob_start();
             <?php else : ?>
                 <p class="text-center">Connectez-vous pour ajouter un commentaire.</p>
             <?php endif; ?>
+            <?php
+            if ($aa != 0) {
+                foreach ($aa as $a) {
+                   echo "<div>";
+                    echo "<p><strong>" . $a->getPseudo() . "</strong></p>";
+                    echo "<p>" . $a->getCommentaire() . "</p>";
+
+                    $date = new DateTime($a->getDateCommentaire());
+                    $date->setTimezone(new DateTimeZone('Europe/Paris'));
+                    echo "<p><small>" . $date->format('l d F Y H:i:s') . "</small></p>";
+
+                    echo "</div>";
+                    if (isset($_SESSION['idUsers']) && $_SESSION['idUsers'] == $a->getIdUsers()) {
+            ?>
+                        <button><a href="<?= URL ?>avis/supp/<?= $a->getIdCommentaire() ?>">supprimer</a></button><br>
+            <?php
+
+                    }
+                }
+            } else {
+                echo "rien";
+            }
+            ?>
+
+            
         </div>
     </div>
 </div>

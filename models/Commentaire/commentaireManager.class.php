@@ -20,7 +20,7 @@ class CommentaireManager extends Model{
 
         foreach($mesCommentaire as $commentaire){
             // genere Commentaire de la classe Commentaire
-            $l=new Commentaire($commentaire["idCommentaire"],$commentaire["commentaire"],$commentaire["idUsers"],$commentaire["pseudo"]);
+            $l=new Commentaire($commentaire["idCommentaire"],$commentaire["commentaire"],$commentaire["dateCommentaire"],$commentaire["idUsers"],$commentaire["pseudo"]);
             $this->ajoutCommentaire($l);
         }
     }
@@ -35,7 +35,7 @@ class CommentaireManager extends Model{
         $resultat=$stmt->execute();
         $stmt->closeCursor();
         if($resultat>0){
-            $commentaire=new Commentaire($this->getBdd()->lastInsertId(),$commentaire,$idUsers,$_SESSION["pseudo"]);
+            $commentaire=new Commentaire($this->getBdd()->lastInsertId(),$commentaire,date('Y-m-d H:i:s'),$idUsers,$_SESSION["pseudo"]);
             $this->ajoutCommentaire($commentaire);
         }
 }
