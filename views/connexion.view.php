@@ -15,7 +15,7 @@ ob_start();
             <button type="submit" name="Connecter" class="btn btn-primary rounded-pill py-3 fs-5 fw-bold">Se connecter</button>
         </div>
         <div class="text-center px-5 mx-5 pb-5">
-            <p class="text-white ">Devenir membre ?<a href="inscription">S'enregistrer</a></p>
+            <p class="text-dark ">Devenir membre ? <a href="inscription">S'enregistrer</a></p>
         </div>
     </form>
 </div>

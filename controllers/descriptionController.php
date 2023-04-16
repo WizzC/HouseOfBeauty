@@ -13,5 +13,28 @@ class DescriptionController{
         return $this->descriptionManager->getListeDescriptions();
     
        } 
+    public function ajoutDescriptionValidation(){
+
+        $this->descriptionManager->ajoutDescriptionBD($_POST["description"],$_POST["idComponent"]);
+        header("Location: " .URL. "avis");
+        exit();
+    }
+    public function supprimerDescription($idDescription){
+        $this->descriptionManager->suppressionDescriptionBd($idDescription);
+        header("Location: " .URL. "description");
+    }
+    public function modificationDescription($idDescription){
+        $this->descriptionManager->getDescriptionById($idDescription);
+        header("Location: " . URL . "description");
+    }
+    public function modificationDescriptionValidation(){
+        $this->descriptionManager->modificationDescriptionBD($_POST["idDescription"],$_POST["Description"],$_POST["idComponent"]);
+        $_SESSION['alert']= [
+            "type"=> "success",
+            "msg"=> "Modification Réalisé"
+        ];
+        header("Location: ".URL."description");
+    }
+    
 }
 ?>  

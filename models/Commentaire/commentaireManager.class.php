@@ -58,5 +58,19 @@ public function suppressionCommentaireBd($idCommentaire){
         unset($Commentaire);
     }
 }
+public function modificationCommentaireBD($idCommentaire,$commentaire){
+    $req = "UPDATE commentaire          
+    set commentaire = :commentaire ,
+    where idCommentaire = :idCommentaire";
+    $stmt = $this->getBdd()->prepare($req);
+    $stmt->bindValue(":idCommentaire",$idCommentaire,PDO::PARAM_INT);
+    $stmt->bindValue(":commentaire",$commentaire,PDO::PARAM_STR);
+    $resultat = $stmt->execute();
+    $stmt->closeCursor();
+
+    if($resultat>0){
+        $this->getCommentaireById($idCommentaire)->setCommentaire($commentaire);
+    }
+}
 }
 ?>

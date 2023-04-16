@@ -11,7 +11,28 @@ class ComponentController{
     }
    public function afficherComponent(){
     return $this->componentManager->getListeComponent();
-
    } 
+   public function ajoutComponentValidation(){
+
+    $this->componentManager->ajoutComponentBD($_POST["titre"]);
+    header("Location: " .URL. "avis");
+    exit();
+}
+   public function supprimerComponent($idComponent){
+    $this->componentManager->suppressionComponentBd($idComponent);
+    header("Location: " .URL. "avis");
+}
+public function modificationComponent($idComponent){
+    $this->componentManager->getComponentById($idComponent);
+    header("Location: " . URL . "component");
+}
+public function modificationComponentValidation(){
+    $this->componentManager->modificationComponentBD($_POST["idComponent"],$_POST["titre"]);
+    $_SESSION['alert']= [
+        "type"=> "success",
+        "msg"=> "Modification Réalisé"
+    ];
+    header("Location: ".URL."component");
+}
 }
 ?>  
