@@ -15,7 +15,7 @@ class CommentaireController{
        } 
     public function ajoutCommentaireValidation(){
 
-        $this->commentaireManager->ajoutCommentaireBD($_POST["commentaire"],$_POST["dateCommentaire"],$_SESSION["idUsers"]);
+        $this->commentaireManager->ajoutCommentaireBD($_POST["commentaire"],$_SESSION["idUsers"]);
         header("Location: " .URL. "avis");
         exit();
     }
@@ -28,7 +28,7 @@ class CommentaireController{
         header("Location: " . URL . "commentaire");
     }
     public function modificationCommentaireValidation(){
-        $this->commentaireManager->modificationCommentaireBD($_POST["idCommentaire"],$_POST["dateCommentaire"],$_POST["commentaire"]);
+        $this->commentaireManager->modificationCommentaireBD($_POST["idCommentaire"],$_POST["commentaire"]);
         $_SESSION['alert']= [
             "type"=> "success",
             "msg"=> "Modification Réalisé"

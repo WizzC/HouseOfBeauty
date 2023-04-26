@@ -37,7 +37,7 @@ class ImageManager extends Model {
         value (:nomImage,:idComponent)";
         $stmt=$this->getBdd()->prepare($req);
 
-        $stmt->bindValue(":image",$image,PDO::PARAM_STR);
+        $stmt->bindValue(":nomImage",$image,PDO::PARAM_STR);
         $stmt->bindValue(":idComponent",$idComponent);
         
         $resultat=$stmt->execute();

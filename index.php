@@ -56,6 +56,38 @@ try{
                       
                   }
             break;
+            case "component":
+                if(empty($url[1])){
+
+                }
+                elseif($url[1] === "l"){
+                    $componentController->ajoutComponentValidation();
+                }
+                elseif($url[1] === "supp"){
+                    $componentController->supprimerComponent($url[2]);
+                };
+                break;
+            case "image":
+                if(empty($url[1])){
+    
+                }
+                elseif($url[1] === "l"){
+                    $imageController->ajoutImageValidation();
+                }
+                elseif($url[1] === "supp"){
+                    $imageController->supprimerImage($url[2]);
+                };
+                break;
+            case "description":
+                if(empty($url[1])){
+
+                }
+                elseif($url[1] === "l"){
+                    $descriptionController->ajoutDescriptionValidation();
+                }
+                elseif($url[1] === "supp"){
+                    $descriptionController->supprimerDescription($url[2]);
+                };
             case "connexion":
                 if (empty($url[1])) {
                     $usersController->connexion();

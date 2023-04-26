@@ -15,12 +15,12 @@ class ComponentController{
    public function ajoutComponentValidation(){
 
     $this->componentManager->ajoutComponentBD($_POST["titre"]);
-    header("Location: " .URL. "avis");
+    header("Location: " .URL. "prestations");
     exit();
 }
    public function supprimerComponent($idComponent){
     $this->componentManager->suppressionComponentBd($idComponent);
-    header("Location: " .URL. "avis");
+    header("Location: " .URL. "prestations");
 }
 public function modificationComponent($idComponent){
     $this->componentManager->getComponentById($idComponent);
