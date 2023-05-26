@@ -38,12 +38,12 @@ try{
 
             break;
             case"formation":
-
+                require "views/formation.view.php";
             break;
             case "avis":
                 if(empty($url[1]))
                 {
-                    $aa = $commentaireController->afficherCommentaire();
+                    $commentaires = $commentaireController->afficherCommentaire();
                     require "views/commentaire.view.php";
                     
                 }
@@ -55,18 +55,25 @@ try{
                     $commentaireController->supprimerCommentaire($url[2]);
                       
                   }
+                  elseif($url[1] === "mv"){
+                    $commentaireController->modificationCommentaireValidation();
+                  }
             break;
             case "component":
                 if(empty($url[1])){
-
+                    header("Location: " .URL. "prestations");
                 }
                 elseif($url[1] === "l"){
                     $componentController->ajoutComponentValidation();
                 }
                 elseif($url[1] === "supp"){
                     $componentController->supprimerComponent($url[2]);
+                }
+                elseif($url[1] === "mv"){
+                    $componentController->modificationComponentValidation();
                 };
                 break;
+
             case "image":
                 if(empty($url[1])){
     
@@ -80,13 +87,16 @@ try{
                 break;
             case "description":
                 if(empty($url[1])){
-
+                    header("Location: " .URL. "prestations");
                 }
                 elseif($url[1] === "l"){
                     $descriptionController->ajoutDescriptionValidation();
                 }
                 elseif($url[1] === "supp"){
                     $descriptionController->supprimerDescription($url[2]);
+                }
+                elseif($url[1] === "mv"){
+                    $descriptionController->modificationDescriptionValidation();
                 };
             case "connexion":
                 if (empty($url[1])) {

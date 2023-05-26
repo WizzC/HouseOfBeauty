@@ -28,7 +28,7 @@ class DescriptionController{
         header("Location: " . URL . "prestations");
     }
     public function modificationDescriptionValidation(){
-        $this->descriptionManager->modificationDescriptionBD($_POST["idDescription"],$_POST["Description"],$_POST["idComponent"]);
+        $this->descriptionManager->modificationDescriptionBD($_POST["idDescription"],$_POST["description"],$_POST["idComponent"]);
         $_SESSION['alert']= [
             "type"=> "success",
             "msg"=> "Modification Réalisé"

@@ -13,58 +13,59 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg d-flex fixed-top border-bottom bg-white">
-    <div class="container">
-      <a class="navbar-brand" href="<?= URL ?>accueil"><img src="/public/images/LogoHouseOfBeauty.png" alt="Logo" width="80"  class="d-inline-block align-text-top"></a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand order-first" href="<?= URL ?>accueil">
+        <img src="/public/images/LogoHouseOfBeauty.png" alt="Logo" width="80" class="d-inline-block align-text-top">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-          <a class="nav-link active text-dark" href="<?= URL ?>accueil">Accueil</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link active text-dark" href="<?= URL ?>prestations">Prestations</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link active text-dark" href="<?= URL ?>formation">Formation</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link active text-dark" href="<?= URL ?>avis">Avis</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link active text-dark" href="<?= URL ?>contact">Contact</a>
-          </li>
-        </ul>
-        <div>
-        <?php if (isset($_SESSION['Pseudo'])): ?>
-                <?php if ($_SESSION['Role'] == 1): ?>
-                    <a class="text-dark text-decoration-none me-3" href="<?= URL ?>admin">Admin</a>
-                <?php endif; ?>
-                <div class="btn-group dropdown-end me-3">
-                    <a type="button" class="btn btn-outline-light text-dark rounded" data-bs-toggle="dropdown" aria-expanded="false">
-                        COMPTE
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle ms-2" height="22" alt="" loading="lazy" />
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start bg-light">
-                        <li><a class="btn btn-light text-dark rounded d-flex justify-content-center" href="">Parametre</a></li>
-                        <li><a class="btn btn-light text-dark rounded d-flex justify-content-center" href="<?= URL ?>logout">Deconnexion</a></li>
-                    </ul>
-                </div>
-            <?php else: ?>
-              <a class="btn btn-outline-light text-dark btn" type="button" href="<?= URL ?>connexion">Connexion</a>
-            <?php endif; ?>
-          </div>
-      </div>
-  </nav>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<?= URL ?>accueil">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<?= URL ?>prestations">Prestations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<?= URL ?>formation">Formation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<?= URL ?>avis">Avis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<?= URL ?>contact">Contact</a>
+        </li>
+      </ul>
+      <?php if (isset($_SESSION['Pseudo'])): ?>
+        <?php if ($_SESSION['Role'] == 8): ?>
+          <a class="text-dark text-decoration-none me-3" href="<?= URL ?>admin">Admin</a>
+        <?php endif; ?>
+        <div class="btn-group dropdown-end me-3">
+          <button type="button" class="btn btn-outline-light text-dark rounded dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            COMPTE
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle ms-2" height="22" alt="" loading="lazy">
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start bg-light">
+
+            <li><a class="btn btn-light text-dark rounded d-flex justify-content-center" href="<?= URL ?>logout">Déconnexion</a></li>
+          </ul>
+        </div>
+      <?php else: ?>
+        <a class="btn btn-outline-light text-dark rounded ms-3" type="button" href="<?= URL ?>connexion">Connexion</a>
+      <?php endif; ?>
+      <a class="btn btn-outline-light text-dark rounded" type="button" href="https://houseofbeauty82.booksy.com">RDV en ligne</a>
+    </div>
+  </div>
+</nav>
 
   <div class="container-fluide">
     <?= $content ?>
   </div>
-
-
-
 
   <footer class="text-center text-lg-start text-dark pt-5 mt-5" style="bottom: 0;">
     <div class="container p-5 pb-0 ">

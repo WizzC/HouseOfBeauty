@@ -69,7 +69,7 @@ class DescriptionManager extends Model{
         $stmt->closeCursor();
     
         if($resultat>0){
-            $this->getDescriptionById($idDescription)->setTitre($description);
+            $this->getDescriptionById($idDescription)->setDescription($description);
         }
     }
     

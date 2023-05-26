@@ -5,7 +5,7 @@ abstract class Model{
     private static $pdo;
 
     private static function setBdd(){
-        self::$pdo=new PDO("mysql:host=localhost;dbname=houseofbeauty;charset=utf8","root","");
+        self::$pdo=new PDO("mysql:host=localhost;dbname=houseofbeauty2;charset=utf8","root","");
         // Pour gerer les erreurs, constantes dispo
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
     }

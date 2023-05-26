@@ -59,9 +59,10 @@ public function suppressionCommentaireBd($idCommentaire){
     }
 }
 public function modificationCommentaireBD($idCommentaire,$commentaire){
-    $req = "UPDATE commentaire          
-    set commentaire = :commentaire ,
-    where idCommentaire = :idCommentaire";
+    $req = "UPDATE `commentaire`
+    SET`commentaire`= :commentaire
+    WHERE idCommentaire=:idCommentaire";
+
     $stmt = $this->getBdd()->prepare($req);
     $stmt->bindValue(":idCommentaire",$idCommentaire,PDO::PARAM_INT);
     $stmt->bindValue(":commentaire",$commentaire,PDO::PARAM_STR);

@@ -1,12 +1,12 @@
 <?php
 class Description {
     private $idDescription;
-    private $prix;
+    private $description;
     private $idComponent;
   
-    public function __construct($id, $prix, $idComponent) {
+    public function __construct($id, $description, $idComponent) {
       $this->idDescription = $id;
-      $this->prix = $prix;
+      $this->description = $description;
       $this->idComponent = $idComponent;
     }
   
@@ -15,8 +15,8 @@ class Description {
       return $this->idDescription;
     }
   
-    public function getPrix() {
-      return $this->prix;
+    public function getDescription() {
+      return $this->description;
     }
   
     public function getIdComponent() {
@@ -28,8 +28,8 @@ class Description {
       $this->idDescription = $id;
     }
   
-    public function setPrix($prix) {
-      $this->prix = $prix;
+    public function setDescription($description) {
+      $this->description = $description;
     }
   
     public function setIdComponent($idComponent) {

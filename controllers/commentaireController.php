@@ -33,7 +33,7 @@ class CommentaireController{
             "type"=> "success",
             "msg"=> "Modification Réalisé"
         ];
-        header("Location: ".URL."commentaire");
+        header("Location: ".URL."avis");
     }
 }
 ?>  
