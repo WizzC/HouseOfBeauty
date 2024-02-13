@@ -65,6 +65,7 @@ try{
                 }
                 elseif($url[1] === "l"){
                     $componentController->ajoutComponentValidation();
+                    
                 }
                 elseif($url[1] === "supp"){
                     $componentController->supprimerComponent($url[2]);

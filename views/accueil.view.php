@@ -3,8 +3,8 @@ ob_start();
 ?>
 <section class="main-section d-flex align-items-center justify-content-center pt-4" style="height: 70vh; background: url('/public/images/formation-cap-esthetique.jpg') no-repeat center center/cover; margin-top: 80px;">
   <div class="container text-center" style="z-index: 1;">
-    <h1 class="display-4 text-white text-uppercase" style="text-shadow: 0 0 10px #000, 0 0 20px #000;">House of beauty</h1>
-    <p class="lead text-white" style="text-shadow: 0 0 10px #000, 0 0 20px #000;">Nous offrons une gamme complète de soins de beauté pour vous aider à vous sentir bien dans votre peau. Venez nous voir pour une expérience de détente et de beauté.</p>
+    <h1 class="display-4 text-dark text-uppercase fst-italic " style="text-shadow: 0 0 10px #fff, 0 0 20px #fff;font-family:Italianno;">House Of Beauty</h1>
+    <p class="lead text-dark fs-4" style="text-shadow: 0 0 10px #fff, 0 0 20px #fff;font-family:Italianno;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque hic,</p>
   </div>
 </section>
 <section class="second-section d-flex align-items-end pt-5">

@@ -58,25 +58,24 @@ class UsersManager extends Model
 
     public function ConnexionUser($Pseudo, $Password)
     {
-        // Préparation de la requête pour récupérer l'utilisateur avec les informations de connexion
+        
         $req = ("select * from users where Pseudo = :Pseudo");
-        // Préparation de la requête à être exécutée
         $stmt = $this->getBdd()->prepare($req);
-        // liaison des valeurs pour les paramètres de la requête
         $stmt->bindValue(":Pseudo", $Pseudo, PDO::PARAM_STR);
-        // Exécution de la requête
         $stmt->execute();
-
+        
         if ($stmt->rowCount() > 0) {
             $data = $stmt->fetch();
             $_SESSION['Role'] = $data['Role'];
             $_SESSION['Email'] = $data['Email'];
             $_SESSION['idUsers'] = $data['idUsers'];
+            
             if (password_verify($Password, $data['Password'])) {
 
                 $_SESSION['Pseudo'] = $Pseudo;
+                
             } else {
-                echo "reessaye";
+                
             }
             $stmt->closeCursor();
         }

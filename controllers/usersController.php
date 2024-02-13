@@ -40,6 +40,8 @@ class UserController {
             }
 
     public function UsersValidation(){
+        
+
         $this->UsersManager->ConnexionUser($_POST["Pseudo"],$_POST["Password"]);
         if (isset($_SESSION['Pseudo'])) {
             header("Location: ".URL."accueil");

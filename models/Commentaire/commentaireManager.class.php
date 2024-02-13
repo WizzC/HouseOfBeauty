@@ -11,16 +11,18 @@ class CommentaireManager extends Model{
     public function getListeCommentaire(){return $this->listeCommentaire;}
 
     public function chargementListeCommentaire(){
-        $req=$this->getBdd()->prepare("SELECT commentaire.*,users.pseudo
+        $req=("SELECT commentaire.*,users.pseudo
         FROM commentaire 
         INNER JOIN users on users.idUsers = commentaire.idUsers");
-        $req->execute();
-        $mesCommentaire=$req->fetchAll(PDO::FETCH_ASSOC);
-        $req->closeCursor();
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->execute();
+        $mesCommentaire=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
 
         foreach($mesCommentaire as $commentaire){
             // genere Commentaire de la classe Commentaire
-            $l=new Commentaire($commentaire["idCommentaire"],$commentaire["commentaire"],$commentaire["dateCommentaire"],$commentaire["idUsers"],$commentaire["pseudo"]);
+            $l=new Commentaire($commentaire["idCommentaire"],$commentaire["commentaire"],
+            $commentaire["dateCommentaire"],$commentaire["idUsers"],$commentaire["pseudo"]);
             $this->ajoutCommentaire($l);
         }
     }
